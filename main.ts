@@ -301,7 +301,7 @@ export default class Waypoint extends Plugin {
 					if (title) {
 						return `${bullet} [[${node.basename}|${title}]]`;
 					} else {
-					return `${bullet} [[${node.basename}]]`;
+						return `${bullet} [[${node.path.slice(0, node.path.length - 3)}|${node.basename}]]`;
 					}
 				}
 				if (title) {
@@ -330,7 +330,7 @@ export default class Waypoint extends Plugin {
 			}
 			if (folderNote instanceof TFile) {
 				if (this.settings.useWikiLinks) {
-					text = `${bullet} **[[${folderNote.basename}]]**`;
+					text = `${bullet} [[${folderNote.path.slice(0, folderNote.path.length - 3)}|${folderNote.basename}]]`;;
 				} else {
 					text = `${bullet} **[${folderNote.basename}](${this.getEncodedUri(rootNode, folderNote)})**`;
 				}
